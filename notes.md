@@ -23,3 +23,29 @@
 2. 所有的版本控制系统，其实只能跟踪文本文件的改动，比如 txt，网页，等程序代码，git 也是。而对于图片和视频这些个二进制文件，虽然也能由版本控制系统管理，但是没法跟踪文件的变化，只能知道文件的大小发生了变化，但是对于改了什么内容，版本控制系统是没法知道的。
 3. 而且，针对 ms 的 word 文档也是二进制格式，所以版本控制系统是没法跟踪 word 文件的改动的。
 4. 针对使用 window 同学，要注意不要用 window 自带的记事本编写任何文本文件。
+5. git add \*(readme.txt), 输入后不会有东西输出，unix 哲学： 没有消息就是好消息
+6. git commit -m 'write a file': 输入后会告诉我们那些文件修改了，什么内容被插入了, file changes, 25 insertions
+7. 我们的逻辑在这里在于我们可以添加很多次文件，然后总结成一个 commit
+8. **summary**:
+
+```bash
+$ git init
+$ git add <file>
+$ git add <another file>
+$ git commit -m "message"
+```
+
+### 2. 时光机穿梭
+
+1. 然后我们文件先修改一下，然后使用`git status`命令看一下，我们会发现，git status 命令可以让我们时刻掌握仓库当前的状态，上面的命令输出告诉我们，有文件被修改过了，但是还没有准备好提交的修改。
+2. git status 只能告诉我们那些文件被修改了，而如果我们想看到那些地方修改了的话，我们需要使用`git diff <filename>`
+3. 然后我们在知道那些文件做了修改之后，我们就继续使用 git add, git commit
+
+```bash
+git status
+git diff <filename>
+```
+
+### 3. 版本退回
+
+1.
