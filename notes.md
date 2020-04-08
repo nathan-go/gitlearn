@@ -107,3 +107,7 @@ git diff <filename>
     1. 确实我们需要从版本中删除掉，然后我们需要使用`git rm`,然后`git commit`
     2. 我们确实是删除错了，因为版本库中还有，所以我们可以很轻松的把删除的文件恢复到最新的版本。 但是这个删除指定是使用 rm filename，或者直接删除文件，`git checkout -- text.txt`
        notice: 这里的 git checkout 其实就是使用版本库里面的版本替换到工作区的版本，无论工作区是修改了还是删除了，都可以一键还原。
+
+## 远程仓库
+
+ssh-keygen -t rsa -C "tigerhao1018@gmail.com"
