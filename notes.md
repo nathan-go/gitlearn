@@ -110,4 +110,55 @@ git diff <filename>
 
 ## 远程仓库
 
-ssh-keygen -t rsa -C "tigerhao1018@gmail.com"
+1. git remote add origin https://github.com/nathan-go/gitlearn.git
+   git push -u origin master
+2. origin: 远程库的 git 的默认叫法。
+3. 如果我们第一次把本地库的内容推送到远程上面，我们使用`git push -u(把本地master分支和远程的master分支关联起来) origin master`
+4. 以后的话我们只需要把 git push origin master 完成就行
+
+### 远程克隆
+
+1. git clone： ssh 协议速度，但是如果我们服务器端只支持 http 的话，那么就只能使用 https 协议了
+
+## 分支管理
+
+1. 类似平行宇宙
+
+### 1. 创建和合并分支
+
+1. 在版本控制的里面，我们每次提交都会有一个时间线，而这个时间线会串成一个分支。
+2. 当下为止，我们 git 只有一个分支，这个分支叫做主分支，也就是 master 分支。而 HEAD 严格来讲并不是指向提交，而是指向了 master，master 才是指向提交的，所以 HEAD 指向的是当前的分支。
+3. 新创建的 dev 分支，其实 master 也好，dev 也好，只是一个指针。
+
+#### 创建过程
+
+1. git checkout -b dev(switch to a new branch `dev`)
+   解释： 1. checkout 加上-b 的参数的意思是创建并切换到这个分支 2. 相当于: git branch dev, git checkout dev
+2. git branch: 可以查看分支和当前的分支
+3. git checkout branch/master: 切换分支
+
+#### 合并分支
+
+1. git merge dev: 命令的意思是合并指定分支到当前分支。
+2. 合并完之后我们就可以删除这个分支了，git branch -d dev
+3. 这种方式其实很快的，而且更加安全，所以我们推荐使用这种方式。
+
+#### switch
+
+1. 我们注意到 git checkout <branch>, 和前面的撤销修改： git checkout -- filename, 是同一个命令有些困惑，所以 git 新版本里面提供了一个新的：
+2. git switch -c dev: 创建并切换到新的 dev 分支。change
+3. git switch master: 切换到新的 master 分支。
+
+#### summary：
+
+1. Git 鼓励大量使用分支：
+    1. 查看分支：git branch
+    2. 创建分支：git branch <name>
+    3. 切换分支：git checkout <name>或者 git switch <name>
+    4. 创建+切换分支：git checkout -b <name>或者 git switch -c <name>
+    5. 合并某分支到当前分支：git merge <name>
+    6. 删除分支：git branch -d <name>
+
+### 2. 解决冲突
+
+1.
